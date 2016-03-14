@@ -1,0 +1,14 @@
+{
+    "users": [
+    {
+        "name": "Admin",
+        "email": "Admin@gmail.com",
+        "pwd": "logmepls"
+        },
+        {
+            "name": "h4ck3r",
+            "email": "hck@hotmail.com",
+            "pwd": "allyourpwdarebelongtome"
+        }
+        ]
+    }

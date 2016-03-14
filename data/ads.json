@@ -1,0 +1,200 @@
+{
+    "ads": [
+    {
+        "name": "Bicicleta",
+        "sale": true,
+        "price": 230.15,
+        "picture": "bici.jpg",
+        "tags": [ "lifestyle", "motor"]
+    },
+    {
+        "name": "iPhone 3GS",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "2",
+        "sale": false,
+        "price": 60.00,
+        "picture": "iphone.png",
+        "tags": [ "mobile"]
+    },
+    {
+        "name": "3",
+        "sale": false,
+        "price": 70.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle"]
+    },
+    {
+        "name": "4",
+        "sale": false,
+        "price": 80.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile", "work", "motor"]
+    },
+    {
+        "name": "5",
+        "sale": false,
+        "price": 90.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "6",
+        "sale": false,
+        "price": 100.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "7",
+        "sale": false,
+        "price": 150.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "8",
+        "sale": false,
+        "price": 250.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "9",
+        "sale": false,
+        "price": 350.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "10",
+        "sale": false,
+        "price": 485.33,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "11",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "12",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "13",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "14",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "15",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "16",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "17",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "18",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "19",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "20",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "21",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "22",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "23",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "24",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "25",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "26",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "27",
+        "sale": false,
+        "price": 50.00,
+        "picture": "iphone.png",
+        "tags": [ "lifestyle", "mobile"]
+    }
+    ]
+}
