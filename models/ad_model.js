@@ -14,15 +14,19 @@ var adSchema = mongoose.Schema({
 });
 
 // Creamos función list de manera dinámica que recibe un callback
-adSchema.statics.list = function(qsort, qpage, qtags, qsale, qprice, qname, cb) {
+adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname, cb) {
     // Preparamos la query sin ejecutarla
     var query = ad.find({});
 
     // Añadimos más parámetros a la query
     query.sort(qsort);
 
-    query.limit(5);
-    query.skip(5*qpage);
+    var qlimit = 5
+
+    qpage = parseInt(qpage);
+
+    query.limit(qlimit);
+    query.skip(qlimit * qpage);
     query.where('sale').equals(qsale);
 
     var qtagsArray = qtags.split(',');
@@ -67,13 +71,38 @@ adSchema.statics.list = function(qsort, qpage, qtags, qsale, qprice, qname, cb) 
         }
     }
 
+    // Manejamos la url para hacer HATEOAS
+    var uri = qurl.split('?')[0];
+    uri = uri + '?';
+
+    if(qsort !== '_id'){
+        uri = uri + '&sort=' + qsort;
+    }
+    if(qtags !== ''){
+        uri = uri + '&tags=' + qtags;
+    }
+    if(qsale !== true){
+        uri = uri + '&sale=' + qsale;
+    }
+    if(qprice !== ''){
+        uri = uri + '&price' + qprice;
+    }
+    if(qname !== ''){
+        uri = uri + '&name=' + qname;
+    }
+    uri = uri.substring(0,uri.indexOf('&')) + uri.substring(uri.indexOf('&')+1, uri.length);
+
     // Ejecutamos la query y llamamos al callback
-    query.exec(function(err, rows){
+    query.exec(function(err, rows, nextPage, prevPage){
         if(err){
             cb(err);
         }
         else{
-            cb(null, rows);
+            var nextpage = uri + '&page=' + (qpage+1);
+            var prevpage = null;
+            if(qpage !== 0)
+                prevpage = uri + '&page=' + (qpage-1);
+            cb(null, rows, nextpage, prevpage);
         }
     });
 };

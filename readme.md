@@ -7,7 +7,7 @@ En la carpeta NodePop ejecutar: 'nodemon'
 Abrir un navegador e ir a 'http://localhost:3000/'
 
 
-# Como inicializar base de datos
+# Como iniciar la base de datos
 Ejecutar el exe mongod_NodePop o bien si no lo tenemos ejecutar 'mongod --dbpath "C:\Program Files\MongoDB\Server\3.2\data\NodePopdb" --directoryperdb'
 
 # Para resetear los datos dentro de la base de datos:
