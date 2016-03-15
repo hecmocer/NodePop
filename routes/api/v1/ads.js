@@ -5,7 +5,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Ad = mongoose.model('Ad');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
     var sort = req.query.sort || "_id";
     var page = req.query.page || 0;
@@ -28,7 +27,64 @@ router.get('/', function(req, res, next) {
             res.json({ result: false, err: err});
         }
         else{
-            res.json({ result: true, rows: rows, nextpage: nextPage, prevpage: prevPage});
+            if(rows.length === 0)
+                res.json({ result: true, rows: rows, nextpage: nextPage, prevpage: prevPage, msg: 'Búsqueda sin resultados'});
+            else
+                res.json({ result: true, rows: rows, nextpage: nextPage, prevpage: prevPage});
+        }
+    });
+});
+
+router.post('/', function(req, res){
+    var ad = new Ad(req.body);
+
+    ad.save(function(err, newRow){
+        if(err){
+            res.json( { result: false, error: err } );
+        }
+        else{
+            res.json( { result: true, insertedElement: newRow } );
+        }
+    })
+});
+
+router.put('/:id', function(req, res){
+    // Ad.update(
+    //     { _id: req.params.id},
+    //     {$set: {name: req.params.name}},
+    //     {$set: {price: req.params.price}},
+    //     {$set: {picture: req.params.picture}},
+    //     {$set: {tags: req.params.tags}},
+    //     {multi: true},
+    //     function(err, data){
+    //         if(err){
+    //             res.json({ result: false, error: err});
+    //         }
+    //         else{
+    //             res.json({ result: true, row: data});
+    //         }
+    //     });
+    Ad.update(
+        { _id: req.params.id},
+        {$set: {sale: req.params.sale}},
+        {multi: true},
+        function(err, data){
+            if(err){
+                res.json({ result: false, error: err});
+            }
+            else{
+                res.json({ result: true, row: data});
+            }
+        });
+});
+
+router.delete('/:id', function(req, res){
+    Ad.remove({_id: ObjectId(req.params.id)}, function(err, data){
+        if(err){
+            res.json( { result: false, error: err});
+        }
+        else{
+            res.json( { result: true, data: data});
         }
     });
 });

@@ -11,6 +11,20 @@ var userSchema = mongoose.Schema({
     pwd: String
 });
 
+// Creamos función que devuelva el usuario encontrado por nombre
+userSchema.statics.findCredentials = function(qname, qpwd, cb) {
+
+    // Preparamos y ejecutamos la query llamando al callback
+    var query = User.find({name: qname, pwd: qpwd}, function(err, results){
+        if(err || !results.length){
+            cb(true);
+        }
+        else{
+            cb();
+        }
+    });
+};
+
 // Registramos el schema en mongoose
 var User = mongoose.model('User', userSchema);
 

@@ -12,3 +12,9 @@ Ejecutar el exe mongod_NodePop o bien si no lo tenemos ejecutar 'mongod --dbpath
 
 # Para resetear los datos dentro de la base de datos:
 Ejecutar npm run installDB
+
+# To do
+PROMESAS
+PUT no modifica (mongoose)
+DELETE
+(Hashing de contraseñas)

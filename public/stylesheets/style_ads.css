@@ -1,0 +1,34 @@
+table {
+    width: 80%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+table tr:first-child {
+    background-color: #eee;
+}
+
+table th {
+    background-color: black;
+    color: white;
+}
+
+body{
+    font-family: "Arial";
+}
+
+table {
+    font-family: "courier new";
+}
+
+h3{
+    font-weight: normal;
+}

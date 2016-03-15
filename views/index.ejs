@@ -3,10 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Express</title>
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/style_ads.css">
 </head>
 <body>
-    <p>
-        Esto es un párrafo
-    </p>
+    <center>
+        <h1>NodePop</h1>
+        <h3>Tu API de anuncios</h3>
+
+        <table>
+            <tr>
+                <td>Ruta</td>
+                <td>Parámetros</td>
+                <td>Funcionalidad</td>
+            </tr>
+            <tr>
+                <td>api/v1/</td>
+                <td> - </td>
+                <td><strong>GET</strong>: Índice de contenidos del API </td>
+            </tr>
+            <tr>
+                <td>api/v1/ads</td>
+                <td>sort (String) <br>
+                    page (Int) <br>
+                    tags (String [, String]) <br>
+                    sale (Boolean) <br>
+                    price (Int-Int) <br>
+                    name (RegExp)
+                </td>
+                <td><strong>GET</strong>: Busca los anuncios deseados <br>
+                    <strong>POST</strong>: Inserta un anuncio específico <br>
+                    <strong>PUT (/:id)</strong>: Modifica un anuncio <br>
+                    <strong>DELETE (/:id)</strong>: Borra un anuncio
+                </td>
+            </tr>
+            <tr>
+                <td>api/v1/users</td>
+                <td> - </td>
+                <td><strong>POST</strong>: Inserta usuarios <br>
+                    <strong>GET</strong>: Muestra página html <br>
+                </td>
+            </tr>
+            <tr>
+                <td>api/v1/tags</td>
+                <td> - </td>
+                <td><strong>GET</strong>: Muestra los tags reconocidos</td>
+            </tr>
+        </table>
+    </center>
+
 </body>
 </html>

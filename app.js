@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//Autenticación con basic-auth
+var basic_auth = require('./lib/basic_auth');
+
 // Inicializamos los modelos de mongoose
 // Se puede acceder a ellos mediante mongoose.model('<MODELO>')
 require('./models/user_model');
@@ -13,8 +16,13 @@ require('./models/ad_model');
 var index = require('./routes/api/v1/index');
 var ads = require('./routes/api/v1/ads');
 var users = require('./routes/api/v1/users');
+var tags = require('./routes/api/v1/tags');
 
 var app = express();
+
+// Rutas que requieren de autenticación
+app.use('/api/v1/ads', basic_auth());
+app.use('/api/v1/users', basic_auth());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/', index);
 app.use('/api/v1/ads', ads);
 app.use('/api/v1/users', users);
+app.use('/api/v1/tags', tags);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
