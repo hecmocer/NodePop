@@ -1,32 +1,31 @@
 "use strict";
 
+// Importamos Express, modulo router, mongoose y el modelo de anuncios
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Ad = mongoose.model('Ad');
 
+// Para la petición GET
 router.get('/', function(req, res, next) {
+    // Manejamos el valor por defecto de los parámetros
     var sort = req.query.sort || "_id";
     var page = req.query.page || 0;
     var tags = req.query.tags || "";
-    var sale = req.query.sale || true;
+    var sale = req.query.sale;
     var price = req.query.price || "";
     var name = req.query.name || "";
 
+    // Reconstruimos la url para poder añadir paginacion HATEOAS
     var url = req.protocol + '://' + req.get('host') + req.originalUrl;
 
-    // console.log('ORDEN: ', sort);
-    // console.log('PAGINA: ', page);
-    // console.log('TAGS: ', tags);
-    // console.log('SALE: ', sale);
-    // console.log('PRECIO: ', price);
-    // console.log('NOMBRE: ', name);
-
+    // Llamamos a la función que busca los resultados
     Ad.list(url, sort, page, tags, sale, price, name, function(err, rows, nextPage, prevPage){
         if(err){
             res.json({ result: false, err: err});
         }
         else{
+            // Manejamos que no haya resultados
             if(rows.length === 0)
                 res.json({ result: true, rows: rows, nextpage: nextPage, prevpage: prevPage, msg: 'Búsqueda sin resultados'});
             else
@@ -35,9 +34,12 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// Para la petición POST
 router.post('/', function(req, res){
+    // Creamos un objeto con lo que nos pasen en el cuerpo de la petición
     var ad = new Ad(req.body);
 
+    // Insertamos dicho objeto. Mongoose se encargará de comprobar si concuerdan los campos
     ad.save(function(err, newRow){
         if(err){
             res.json( { result: false, error: err } );
@@ -48,26 +50,39 @@ router.post('/', function(req, res){
     })
 });
 
+// Para la petición PUT
 router.put('/:id', function(req, res){
-    // Ad.update(
-    //     { _id: req.params.id},
-    //     {$set: {name: req.params.name}},
-    //     {$set: {price: req.params.price}},
-    //     {$set: {picture: req.params.picture}},
-    //     {$set: {tags: req.params.tags}},
-    //     {multi: true},
-    //     function(err, data){
-    //         if(err){
-    //             res.json({ result: false, error: err});
-    //         }
-    //         else{
-    //             res.json({ result: true, row: data});
-    //         }
-    //     });
+
+    // Manejamos el parámetro sale en caso de que sea un string
+    var qsale = req.body.sale;
+    if(qsale === 'true')
+        qsale = true;
+    if(qsale === 'false')
+        qsale = false;
+
+    // Manejamos el parámetro price en caso de que sea un string
+    var qprice = req.body.price;
+    if(qprice !== undefined)
+        qprice = parseInt(req.body.price);
+
+    // Añadimos dinámicamente a un objeto los parámetros que vamos a actualizar
+    var set_obj = {};
+
+    if(qsale !== undefined)
+        set_obj.sale = qsale;
+    if(qprice !== undefined)
+        set_obj.price = qprice;
+    if(req.body.picture !== undefined)
+        set_obj.picture = req.body.picture;
+    if(req.body.name !== undefined)
+        set_obj.name = req.body.name;
+    if(req.body.tags !== undefined)
+        set_obj.tags = req.body.tags;
+
+    // Ejecutamos la actualización
     Ad.update(
         { _id: req.params.id},
-        {$set: {sale: req.params.sale}},
-        {multi: true},
+        {$set: set_obj},
         function(err, data){
             if(err){
                 res.json({ result: false, error: err});
@@ -78,8 +93,11 @@ router.put('/:id', function(req, res){
         });
 });
 
+// Para la petición DELETE
 router.delete('/:id', function(req, res){
-    Ad.remove({_id: ObjectId(req.params.id)}, function(err, data){
+
+    // Borramos el elemento con el id especificado en la petición
+    Ad.remove({_id: req.params.id}, function(err, data){
         if(err){
             res.json( { result: false, error: err});
         }
@@ -89,4 +107,5 @@ router.delete('/:id', function(req, res){
     });
 });
 
+// Exportamos el router
 module.exports = router;

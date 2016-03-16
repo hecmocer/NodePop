@@ -13,6 +13,7 @@ var basic_auth = require('./lib/basic_auth');
 require('./models/user_model');
 require('./models/ad_model');
 
+// Requerimos las rutas
 var index = require('./routes/api/v1/index');
 var ads = require('./routes/api/v1/ads');
 var users = require('./routes/api/v1/users');
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Hacemos que las rutas para los routers sean las especificadas
 app.use('/api/v1/', index);
 app.use('/api/v1/ads', ads);
 app.use('/api/v1/users', users);

@@ -16,6 +16,7 @@ userSchema.statics.findCredentials = function(qname, qpwd, cb) {
 
     // Preparamos y ejecutamos la query llamando al callback
     var query = User.find({name: qname, pwd: qpwd}, function(err, results){
+        // En el caso de que no se encuentre usuario, tambien devolvemos error
         if(err || !results.length){
             cb(true);
         }

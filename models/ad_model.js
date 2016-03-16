@@ -13,22 +13,32 @@ var adSchema = mongoose.Schema({
     tags: [String]
 });
 
-// Creamos función list de manera dinámica que recibe un callback
+// Creamos función list que devuelve los anuncios segun ciertos parámetros
 adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname, cb) {
     // Preparamos la query sin ejecutarla
     var query = ad.find({});
 
     // Añadimos más parámetros a la query
+
+    // Ordenamos segun el parámetro sort
     query.sort(qsort);
 
+    // Establecemos un límite de resultados por página
     var qlimit = 5
 
+    // Convertimos el parámetro página a entero
     qpage = parseInt(qpage);
 
+    // Establecemos la paginación
     query.limit(qlimit);
     query.skip(qlimit * qpage);
-    query.where('sale').equals(qsale);
 
+    // Buscamos segun el parámetro sale
+    if(qsale !== undefined){
+        query.where('sale').equals(qsale);
+    }
+
+    // Buscamos segun el parámetro tags
     var qtagsArray = qtags.split(',');
     if(qtagsArray[0] !== "" ){
         for(let i = 0; i < qtagsArray.length; i++){
@@ -36,6 +46,7 @@ adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname
         }
     }
 
+    // Buscamos segun el parámetro precio
     if(qprice !== ''){
         var indexInPrice = qprice.indexOf("-");
         //Precio exacto
@@ -61,6 +72,7 @@ adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname
         }
     }
 
+    // Buscamos segun el parámetro name
     if(qname !== ''){
         var qnameArray = qname.split(',');
         var qRegExp = "";
@@ -71,7 +83,7 @@ adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname
         }
     }
 
-    // Manejamos la url para hacer HATEOAS
+    // Manejamos la url para hacer HATEOAS y añadir prevPage y nextPage
     var uri = qurl.split('?')[0];
     uri = uri + '?';
 
@@ -100,6 +112,7 @@ adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname
         else{
             var nextpage = uri + '&page=' + (qpage+1);
             var prevpage = null;
+            // Si la página es distinta de la primera, añadir prevPage
             if(qpage !== 0)
                 prevpage = uri + '&page=' + (qpage-1);
             cb(null, rows, nextpage, prevpage);
