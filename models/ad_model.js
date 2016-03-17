@@ -87,19 +87,19 @@ adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname
     var uri = qurl.split('?')[0];
     uri = uri + '?';
 
-    if(qsort !== '_id'){
+    if(qsort !== '_id' && qsort !== undefined){
         uri = uri + '&sort=' + qsort;
     }
-    if(qtags !== ''){
+    if(qtags !== '' && qtags !== undefined){
         uri = uri + '&tags=' + qtags;
     }
-    if(qsale !== true){
+    if(qsale !== undefined){
         uri = uri + '&sale=' + qsale;
     }
-    if(qprice !== ''){
+    if(qprice !== '' && qprice !== undefined){
         uri = uri + '&price' + qprice;
     }
-    if(qname !== ''){
+    if(qname !== '' && qname !== undefined){
         uri = uri + '&name=' + qname;
     }
     uri = uri.substring(0,uri.indexOf('&')) + uri.substring(uri.indexOf('&')+1, uri.length);
@@ -116,6 +116,22 @@ adSchema.statics.list = function(qurl, qsort, qpage, qtags, qsale, qprice, qname
             if(qpage !== 0)
                 prevpage = uri + '&page=' + (qpage-1);
             cb(null, rows, nextpage, prevpage);
+        }
+    });
+};
+
+// Creamos función listAll que devuelve todos los anuncios
+adSchema.statics.listAll = function(cb) {
+    // Preparamos la query sin ejecutarla
+    var query = ad.find({});
+
+    // Ejecutamos la query y llamamos al callback
+    query.exec(function(err, rows){
+        if(err){
+            cb(err);
+        }
+        else{
+            cb(null, rows);
         }
     });
 };
