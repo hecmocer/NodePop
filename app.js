@@ -26,6 +26,7 @@ var app = express();
 // Rutas que requieren de autenticación
 app.use('/api/v1/ads', basic_auth());
 app.use('/api/v1/users', basic_auth());
+app.use('/api/v1/tags', basic_auth());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

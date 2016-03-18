@@ -34,6 +34,14 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// Para la petición GET de imagenes
+router.get('/:name', function(req, res, next){
+    // Devuelve la ruta a una imagen guardada en el programa.
+    // El frontend toma el path y la renderiza.
+    // Las imágenes se guardan en formato png
+    res.send('/public/images/' + req.params.name + '.png');
+});
+
 // Para la petición POST
 router.post('/', function(req, res){
     // Creamos un objeto con lo que nos pasen en el cuerpo de la petición
