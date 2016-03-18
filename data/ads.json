@@ -11,190 +11,64 @@
         "name": "iPhone 3GS",
         "sale": false,
         "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
+        "picture": "iphone.jpg",
+        "tags": [ "work", "mobile"]
     },
     {
-        "name": "2",
-        "sale": false,
-        "price": 60.00,
-        "picture": "iphone.png",
-        "tags": [ "mobile"]
-    },
-    {
-        "name": "3",
-        "sale": false,
-        "price": 70.00,
-        "picture": "iphone.png",
+        "name": "Potato Salad",
+        "sale": true,
+        "price": 25.00,
+        "picture": "PotatoSalad.jpg",
         "tags": [ "lifestyle"]
     },
     {
-        "name": "4",
+        "name": "Life",
         "sale": false,
-        "price": 80.00,
-        "picture": "iphone.png",
+        "price": 0.01,
+        "picture": "Life.jpg",
+        "tags": [ "lifestyle", "work"]
+    },
+    {
+        "name": "Unicorn",
+        "sale": true,
+        "price": 999.99,
+        "picture": "Unicorn.png",
         "tags": [ "lifestyle", "mobile", "work", "motor"]
     },
     {
-        "name": "5",
+        "name": "Cat",
         "sale": false,
         "price": 90.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
+        "picture": "Cat.jpg",
+        "tags": [ "lifestyle"]
     },
     {
-        "name": "6",
+        "name": "Fox",
         "sale": false,
         "price": 100.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
+        "picture": "Fox.jpg",
+        "tags": [ "lifestyle"]
     },
     {
-        "name": "7",
-        "sale": false,
-        "price": 150.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
+        "name": "Pesas",
+        "sale": true,
+        "price": 45.00,
+        "picture": "Pesas.jpg",
+        "tags": [ "lifestyle", "work"]
     },
     {
-        "name": "8",
-        "sale": false,
-        "price": 250.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
+        "name": "Avión de combate Harrier",
+        "sale": true,
+        "price": 65000.00,
+        "picture": "Harrier.jpg",
+        "tags": [ "motor"]
     },
     {
-        "name": "9",
-        "sale": false,
-        "price": 350.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "10",
-        "sale": false,
-        "price": 485.33,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "11",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "12",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "13",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "14",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "15",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "16",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "17",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "18",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "19",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "20",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "21",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "22",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "23",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "24",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "25",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "26",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
-    },
-    {
-        "name": "27",
-        "sale": false,
-        "price": 50.00,
-        "picture": "iphone.png",
-        "tags": [ "lifestyle", "mobile"]
+        "name": "Helicóptero Apache",
+        "sale": true,
+        "price": 98000.00,
+        "picture": "Apache.jpg",
+        "tags": [ "work"]
     }
     ]
 }

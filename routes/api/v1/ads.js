@@ -27,9 +27,27 @@ router.get('/', function(req, res, next) {
         else{
             // Manejamos que no haya resultados
             if(rows.length === 0)
-                res.json({ result: true, rows: rows, nextpage: nextPage, prevpage: prevPage, msg: 'Búsqueda sin resultados'});
-            else
-                res.json({ result: true, rows: rows, nextpage: nextPage, prevpage: prevPage});
+                res.json({
+                    result: true,
+                    rows: rows,
+                    nextpage: nextPage,
+                    prevpage: prevPage,
+                    msg: 'Búsqueda sin resultados'
+                });
+            else{
+
+                // Modificamos el objeto json para añadir un enlace a su imagen
+                for(let i = 0; i < rows.length; i++){
+                    rows[i] = rows[i].toObject();
+                    rows[i].pictureLink = req.protocol + '://' + req.get('host') + '/api/v1/ads/' + rows[i].picture;
+                }
+                res.json({
+                    result: true,
+                    rows: rows,
+                    nextpage: nextPage,
+                    prevpage: prevPage
+                });
+            }
         }
     });
 });
@@ -37,9 +55,8 @@ router.get('/', function(req, res, next) {
 // Para la petición GET de imagenes
 router.get('/:name', function(req, res, next){
     // Devuelve la ruta a una imagen guardada en el programa.
-    // El frontend toma el path y la renderiza.
-    // Las imágenes se guardan en formato png
-    res.send('/public/images/' + req.params.name + '.png');
+    // El frontend tomará este path para renderizarla.
+    res.render('image.ejs', {route: req.params.name});
 });
 
 // Para la petición POST
